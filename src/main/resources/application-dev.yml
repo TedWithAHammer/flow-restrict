@@ -1,0 +1,4 @@
+algorithms:
+  counter:
+    limitation: 20
+
