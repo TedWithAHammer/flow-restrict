@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @Slf4j
 public class EntryController {
-    @PostMapping("/couter")
+    @PostMapping("/counter")
     public RestBaseResp restrictCounter(){
         return RestBaseResp.OK;
     }

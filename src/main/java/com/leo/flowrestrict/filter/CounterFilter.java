@@ -42,7 +42,7 @@ public class CounterFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
             throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-        log.info("[request info...] path info:{}", request.getPathInfo());
+        log.info("[request info...] path info:{}", request.getServletPath());
         if (request.getServletPath().equals("counter")) {
             if (!counter.filter()) {
                 servletResponse.getWriter().write(objectMapper.writeValueAsString(RestBaseResp.FLOW_RESTRICT));
