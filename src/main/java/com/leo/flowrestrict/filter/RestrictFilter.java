@@ -16,6 +16,7 @@ import org.springframework.core.annotation.Order;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.leo.flowrestrict.Response.RestBaseResp;
+import com.leo.flowrestrict.algorithms.Bucket;
 import com.leo.flowrestrict.algorithms.Counter;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,11 +26,12 @@ import lombok.extern.slf4j.Slf4j;
  * Description:
  */
 @Order(-1)
-@WebFilter(urlPatterns = "/counter")
 @Slf4j
-public class CounterFilter implements Filter {
+public class RestrictFilter implements Filter {
     @Autowired
     private Counter counter;
+    @Autowired
+    private Bucket bucket;
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -43,7 +45,9 @@ public class CounterFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         log.info("[request info...] path info:{}", request.getServletPath());
-        if (request.getServletPath().equals("/counter") && !counter.filter()) {
+        if ("/counter".equals(request.getServletPath()) && !counter.filter()) {
+            servletResponse.getWriter().write(objectMapper.writeValueAsString(RestBaseResp.FLOW_RESTRICT));
+        } else if ("/bucket".equals(request.getServletPath()) && !bucket.filter()) {
             servletResponse.getWriter().write(objectMapper.writeValueAsString(RestBaseResp.FLOW_RESTRICT));
         } else {
             filterChain.doFilter(request, servletResponse);

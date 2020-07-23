@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "algorithms.counter.limitation",
+      "type": "java.lang.String",
+      "description": "Description for algorithms.counter.limitation."
+  }]
+}

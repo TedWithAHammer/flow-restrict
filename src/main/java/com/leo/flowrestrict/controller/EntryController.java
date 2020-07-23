@@ -21,5 +21,9 @@ public class EntryController {
         return new RestResp<>("Counter Test Success");
     }
 
+    @GetMapping("/bucket")
+    public RestBaseResp restrictBucket() {
+        return new RestResp<>("Bucket Test Success");
+    }
 
 }

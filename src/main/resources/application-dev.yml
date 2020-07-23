@@ -1,6 +1,9 @@
 algorithms:
   counter:
     limitation: 20
+  bucket:
+    rate: 1
+    cap: 200
 logging:
   file:
     path: ./logs
