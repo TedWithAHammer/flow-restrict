@@ -43,12 +43,11 @@ public class CounterFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         log.info("[request info...] path info:{}", request.getServletPath());
-        if (request.getServletPath().equals("counter")) {
-            if (!counter.filter()) {
-                servletResponse.getWriter().write(objectMapper.writeValueAsString(RestBaseResp.FLOW_RESTRICT));
-            }
+        if (request.getServletPath().equals("/counter") && !counter.filter()) {
+            servletResponse.getWriter().write(objectMapper.writeValueAsString(RestBaseResp.FLOW_RESTRICT));
+        } else {
+            filterChain.doFilter(request, servletResponse);
         }
-        filterChain.doFilter(request, servletResponse);
     }
 
     @Override

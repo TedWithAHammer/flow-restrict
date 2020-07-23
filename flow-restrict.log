@@ -1,0 +1,233 @@
+2020-07-23 16:29:59.209  WARN 9806 --- [main] o.s.boot.StartupInfoLogger               : InetAddress.getLocalHost().getHostName() took 5004 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-07-23 16:30:04.218  INFO 9806 --- [main] c.l.f.FlowRestrictApplication            : Starting FlowRestrictApplication on leodeMacBook-Pro.local with PID 9806 (/Users/leo/IdeaProjects/flow-restrict/target/classes started by leo in /Users/leo/IdeaProjects/flow-restrict)
+2020-07-23 16:30:04.218  INFO 9806 --- [main] c.l.f.FlowRestrictApplication            : The following profiles are active: dev
+2020-07-23 16:30:04.945  WARN 9806 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+2020-07-23 16:30:04.952  INFO 9806 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-23 16:30:04.965 ERROR 9806 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545) ~[spring-context-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758) [spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750) [spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237) [spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at com.leo.flowrestrict.FlowRestrictApplication.main(FlowRestrictApplication.java:12) [classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:212) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:177) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:158) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	... 9 common frames omitted
+Caused by: java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.checkContextPath(AbstractServletWebServerFactory.java:133) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.setContextPath(AbstractServletWebServerFactory.java:122) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.context.properties.PropertyMapper$Source.to(PropertyMapper.java:316) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryCustomizer.customize(ServletWebServerFactoryCustomizer.java:54) ~[spring-boot-autoconfigure-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryCustomizer.customize(ServletWebServerFactoryCustomizer.java:35) ~[spring-boot-autoconfigure-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.lambda$postProcessBeforeInitialization$0(WebServerFactoryCustomizerBeanPostProcessor.java:72) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.util.LambdaSafe$Callbacks.lambda$null$0(LambdaSafe.java:287) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.util.LambdaSafe$LambdaSafeCallback.invoke(LambdaSafe.java:159) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.util.LambdaSafe$Callbacks.lambda$invoke$1(LambdaSafe.java:286) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at java.util.ArrayList.forEach(ArrayList.java:1249) ~[na:1.8.0_144]
+	at java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1080) ~[na:1.8.0_144]
+	at org.springframework.boot.util.LambdaSafe$Callbacks.invoke(LambdaSafe.java:286) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.postProcessBeforeInitialization(WebServerFactoryCustomizerBeanPostProcessor.java:72) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.postProcessBeforeInitialization(WebServerFactoryCustomizerBeanPostProcessor.java:58) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:416) ~[spring-beans-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788) ~[spring-beans-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	... 17 common frames omitted
+
+2020-07-23 16:30:47.127  WARN 9826 --- [main] o.s.boot.StartupInfoLogger               : InetAddress.getLocalHost().getHostName() took 5006 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-07-23 16:30:52.136  INFO 9826 --- [main] c.l.f.FlowRestrictApplication            : Starting FlowRestrictApplication on leodeMacBook-Pro.local with PID 9826 (/Users/leo/IdeaProjects/flow-restrict/target/classes started by leo in /Users/leo/IdeaProjects/flow-restrict)
+2020-07-23 16:30:52.137  INFO 9826 --- [main] c.l.f.FlowRestrictApplication            : The following profiles are active: dev
+2020-07-23 16:30:52.722  INFO 9826 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10001 (http)
+2020-07-23 16:30:52.728  INFO 9826 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-23 16:30:52.728  INFO 9826 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-23 16:30:52.783  INFO 9826 --- [main] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring embedded WebApplicationContext
+2020-07-23 16:30:52.783  INFO 9826 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 610 ms
+2020-07-23 16:30:52.938  INFO 9826 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-23 16:30:53.080  INFO 9826 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10001 (http) with context path '/flow-restrict'
+2020-07-23 16:30:53.088  INFO 9826 --- [main] c.l.f.FlowRestrictApplication            : Started FlowRestrictApplication in 16.246 seconds (JVM running for 21.643)
+2020-07-23 16:31:21.070  INFO 9826 --- [http-nio-10001-exec-1] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-23 16:31:21.071  INFO 9826 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-23 16:31:21.080  INFO 9826 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-07-23 16:31:21.085  INFO 9826 --- [http-nio-10001-exec-1] c.leo.flowrestrict.filter.CounterFilter  : [request info...] path info:/counter
+2020-07-23 16:31:51.710  INFO 9826 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-23 16:32:09.685  WARN 9833 --- [main] o.s.boot.StartupInfoLogger               : InetAddress.getLocalHost().getHostName() took 5003 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-07-23 16:32:14.690  INFO 9833 --- [main] c.l.f.FlowRestrictApplication            : Starting FlowRestrictApplication on leodeMacBook-Pro.local with PID 9833 (/Users/leo/IdeaProjects/flow-restrict/target/classes started by leo in /Users/leo/IdeaProjects/flow-restrict)
+2020-07-23 16:32:14.691  INFO 9833 --- [main] c.l.f.FlowRestrictApplication            : The following profiles are active: dev
+2020-07-23 16:32:15.428  INFO 9833 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10001 (http)
+2020-07-23 16:32:15.434  INFO 9833 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-23 16:32:15.435  INFO 9833 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-23 16:32:15.488  INFO 9833 --- [main] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring embedded WebApplicationContext
+2020-07-23 16:32:15.488  INFO 9833 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 763 ms
+2020-07-23 16:32:15.606  INFO 9833 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-23 16:32:15.713  INFO 9833 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10001 (http) with context path '/flow-restrict'
+2020-07-23 16:32:15.722  INFO 9833 --- [main] c.l.f.FlowRestrictApplication            : Started FlowRestrictApplication in 16.318 seconds (JVM running for 21.742)
+2020-07-23 16:32:21.502  INFO 9833 --- [http-nio-10001-exec-1] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-23 16:32:21.503  INFO 9833 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-23 16:32:21.507  INFO 9833 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-07-23 16:32:21.512  INFO 9833 --- [http-nio-10001-exec-1] c.leo.flowrestrict.filter.CounterFilter  : [request info...] path info:/counter
+2020-07-23 17:02:11.322  INFO 9833 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:02:29.230  WARN 9892 --- [main] o.s.boot.StartupInfoLogger               : InetAddress.getLocalHost().getHostName() took 5005 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-07-23 17:02:34.237  INFO 9892 --- [main] c.l.f.FlowRestrictApplication            : Starting FlowRestrictApplication on leodeMacBook-Pro.local with PID 9892 (/Users/leo/IdeaProjects/flow-restrict/target/classes started by leo in /Users/leo/IdeaProjects/flow-restrict)
+2020-07-23 17:02:34.238  INFO 9892 --- [main] c.l.f.FlowRestrictApplication            : The following profiles are active: dev
+2020-07-23 17:02:34.843  INFO 9892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10001 (http)
+2020-07-23 17:02:34.854  INFO 9892 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-23 17:02:34.854  INFO 9892 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-23 17:02:34.934  INFO 9892 --- [main] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring embedded WebApplicationContext
+2020-07-23 17:02:34.934  INFO 9892 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 661 ms
+2020-07-23 17:02:35.117  INFO 9892 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:02:35.222  INFO 9892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10001 (http) with context path '/flow-restrict'
+2020-07-23 17:02:35.230  INFO 9892 --- [main] c.l.f.FlowRestrictApplication            : Started FlowRestrictApplication in 16.277 seconds (JVM running for 21.683)
+2020-07-23 17:02:44.825  INFO 9892 --- [http-nio-10001-exec-1] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-23 17:02:44.826  INFO 9892 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-23 17:02:44.833  INFO 9892 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-07-23 17:02:44.837  INFO 9892 --- [http-nio-10001-exec-1] c.leo.flowrestrict.filter.CounterFilter  : [request info...] path info:/counter
+2020-07-23 17:02:56.352  INFO 9892 --- [http-nio-10001-exec-3] c.leo.flowrestrict.filter.CounterFilter  : [request info...] path info:/counter
+2020-07-23 17:03:00.964  INFO 9892 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:03:18.818  WARN 9900 --- [main] o.s.boot.StartupInfoLogger               : InetAddress.getLocalHost().getHostName() took 5003 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-07-23 17:03:23.828  INFO 9900 --- [main] c.l.f.FlowRestrictApplication            : Starting FlowRestrictApplication on leodeMacBook-Pro.local with PID 9900 (/Users/leo/IdeaProjects/flow-restrict/target/classes started by leo in /Users/leo/IdeaProjects/flow-restrict)
+2020-07-23 17:03:23.829  INFO 9900 --- [main] c.l.f.FlowRestrictApplication            : The following profiles are active: dev
+2020-07-23 17:03:24.405  INFO 9900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10001 (http)
+2020-07-23 17:03:24.411  INFO 9900 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-23 17:03:24.412  INFO 9900 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-23 17:03:24.454  INFO 9900 --- [main] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring embedded WebApplicationContext
+2020-07-23 17:03:24.455  INFO 9900 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 592 ms
+2020-07-23 17:03:24.573  INFO 9900 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:03:24.673  INFO 9900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10001 (http) with context path '/flow-restrict'
+2020-07-23 17:03:24.681  INFO 9900 --- [main] c.l.f.FlowRestrictApplication            : Started FlowRestrictApplication in 16.14 seconds (JVM running for 21.542)
+2020-07-23 17:03:28.126  INFO 9900 --- [http-nio-10001-exec-1] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-23 17:03:28.126  INFO 9900 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-23 17:03:28.131  INFO 9900 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-07-23 17:03:28.136  INFO 9900 --- [http-nio-10001-exec-1] c.leo.flowrestrict.filter.CounterFilter  : [request info...] path info:/counter
+2020-07-23 17:03:28.193  INFO 9900 --- [http-nio-10001-exec-1] com.leo.flowrestrict.algorithms.Counter  : Time Gap :3725
+2020-07-23 17:03:28.202 ERROR 9900 --- [http-nio-10001-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/flow-restrict] threw exception
+
+java.lang.IllegalStateException: getOutputStream() has already been called for this response
+	at org.apache.catalina.connector.Response.getWriter(Response.java:583) ~[tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.connector.ResponseFacade.getWriter(ResponseFacade.java:227) ~[tomcat-embed-core-9.0.36.jar:9.0.36]
+	at com.leo.flowrestrict.filter.CounterFilter.doFilter(CounterFilter.java:49) ~[classes/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.36.jar:9.0.36]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
+
+2020-07-23 17:04:28.571  INFO 9900 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:04:46.712  WARN 9906 --- [main] o.s.boot.StartupInfoLogger               : InetAddress.getLocalHost().getHostName() took 5003 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-07-23 17:04:51.721  INFO 9906 --- [main] c.l.f.FlowRestrictApplication            : Starting FlowRestrictApplication on leodeMacBook-Pro.local with PID 9906 (/Users/leo/IdeaProjects/flow-restrict/target/classes started by leo in /Users/leo/IdeaProjects/flow-restrict)
+2020-07-23 17:04:51.721  INFO 9906 --- [main] c.l.f.FlowRestrictApplication            : The following profiles are active: dev
+2020-07-23 17:04:52.275  INFO 9906 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10001 (http)
+2020-07-23 17:04:52.281  INFO 9906 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-23 17:04:52.281  INFO 9906 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-23 17:04:52.323  INFO 9906 --- [main] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring embedded WebApplicationContext
+2020-07-23 17:04:52.323  INFO 9906 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 568 ms
+2020-07-23 17:04:52.441  INFO 9906 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:04:52.541  INFO 9906 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10001 (http) with context path '/flow-restrict'
+2020-07-23 17:04:52.549  INFO 9906 --- [main] c.l.f.FlowRestrictApplication            : Started FlowRestrictApplication in 16.11 seconds (JVM running for 21.496)
+2020-07-23 17:04:58.151  INFO 9906 --- [http-nio-10001-exec-2] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-23 17:04:58.156  INFO 9906 --- [http-nio-10001-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-23 17:04:58.162  INFO 9906 --- [http-nio-10001-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-07-23 17:04:58.167  INFO 9906 --- [http-nio-10001-exec-2] c.leo.flowrestrict.filter.CounterFilter  : [request info...] path info:/counter
+2020-07-23 17:04:58.168  INFO 9906 --- [http-nio-10001-exec-2] com.leo.flowrestrict.algorithms.Counter  : Time Gap :5831
+2020-07-23 17:05:31.466  INFO 9906 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:05:49.315  WARN 9913 --- [main] o.s.boot.StartupInfoLogger               : InetAddress.getLocalHost().getHostName() took 5001 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-07-23 17:05:54.321  INFO 9913 --- [main] c.l.f.FlowRestrictApplication            : Starting FlowRestrictApplication on leodeMacBook-Pro.local with PID 9913 (/Users/leo/IdeaProjects/flow-restrict/target/classes started by leo in /Users/leo/IdeaProjects/flow-restrict)
+2020-07-23 17:05:54.322  INFO 9913 --- [main] c.l.f.FlowRestrictApplication            : The following profiles are active: dev
+2020-07-23 17:05:54.889  INFO 9913 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10001 (http)
+2020-07-23 17:05:54.894  INFO 9913 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-23 17:05:54.895  INFO 9913 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-23 17:05:54.940  INFO 9913 --- [main] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring embedded WebApplicationContext
+2020-07-23 17:05:54.940  INFO 9913 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 583 ms
+2020-07-23 17:05:55.062  INFO 9913 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:05:55.183  INFO 9913 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10001 (http) with context path '/flow-restrict'
+2020-07-23 17:05:55.191  INFO 9913 --- [main] c.l.f.FlowRestrictApplication            : Started FlowRestrictApplication in 16.151 seconds (JVM running for 21.539)
+2020-07-23 17:06:10.385  INFO 9913 --- [http-nio-10001-exec-1] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-23 17:06:10.386  INFO 9913 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-23 17:06:10.391  INFO 9913 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-07-23 17:06:10.395  INFO 9913 --- [http-nio-10001-exec-1] c.leo.flowrestrict.filter.CounterFilter  : [request info...] path info:/counter
+2020-07-23 17:06:10.396  INFO 9913 --- [http-nio-10001-exec-1] com.leo.flowrestrict.algorithms.Counter  : Time Gap :15442
+2020-07-23 17:07:26.286  INFO 9913 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:07:44.087  WARN 9925 --- [main] o.s.boot.StartupInfoLogger               : InetAddress.getLocalHost().getHostName() took 5002 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-07-23 17:07:49.094  INFO 9925 --- [main] c.l.f.FlowRestrictApplication            : Starting FlowRestrictApplication on leodeMacBook-Pro.local with PID 9925 (/Users/leo/IdeaProjects/flow-restrict/target/classes started by leo in /Users/leo/IdeaProjects/flow-restrict)
+2020-07-23 17:07:49.094  INFO 9925 --- [main] c.l.f.FlowRestrictApplication            : The following profiles are active: dev
+2020-07-23 17:07:49.655  INFO 9925 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10001 (http)
+2020-07-23 17:07:49.661  INFO 9925 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-23 17:07:49.661  INFO 9925 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-23 17:07:49.707  INFO 9925 --- [main] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring embedded WebApplicationContext
+2020-07-23 17:07:49.707  INFO 9925 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 583 ms
+2020-07-23 17:07:49.832  INFO 9925 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:07:49.934  INFO 9925 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10001 (http) with context path '/flow-restrict'
+2020-07-23 17:07:49.942  INFO 9925 --- [main] c.l.f.FlowRestrictApplication            : Started FlowRestrictApplication in 16.134 seconds (JVM running for 21.517)
+2020-07-23 17:07:58.189  INFO 9925 --- [http-nio-10001-exec-1] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-23 17:07:58.190  INFO 9925 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-23 17:07:58.194  INFO 9925 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-07-23 17:07:58.199  INFO 9925 --- [http-nio-10001-exec-1] c.leo.flowrestrict.filter.CounterFilter  : [request info...] path info:/counter
+2020-07-23 17:07:58.199  INFO 9925 --- [http-nio-10001-exec-1] com.leo.flowrestrict.algorithms.Counter  : Time Gap :8478
+2020-07-23 17:08:20.152  INFO 9925 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:08:36.952  WARN 9989 --- [main] o.s.boot.StartupInfoLogger               : InetAddress.getLocalHost().getHostName() took 5002 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-07-23 17:08:41.959  INFO 9989 --- [main] c.l.f.FlowRestrictApplication            : Starting FlowRestrictApplication on leodeMacBook-Pro.local with PID 9989 (/Users/leo/IdeaProjects/flow-restrict/target/classes started by leo in /Users/leo/IdeaProjects/flow-restrict)
+2020-07-23 17:08:41.959  INFO 9989 --- [main] c.l.f.FlowRestrictApplication            : The following profiles are active: dev
+2020-07-23 17:08:42.692  INFO 9989 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10001 (http)
+2020-07-23 17:08:42.699  INFO 9989 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-23 17:08:42.699  INFO 9989 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-23 17:08:42.742  INFO 9989 --- [main] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring embedded WebApplicationContext
+2020-07-23 17:08:42.742  INFO 9989 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 749 ms
+2020-07-23 17:08:42.860  INFO 9989 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:08:42.969  INFO 9989 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10001 (http) with context path '/flow-restrict'
+2020-07-23 17:08:42.976  INFO 9989 --- [main] c.l.f.FlowRestrictApplication            : Started FlowRestrictApplication in 16.296 seconds (JVM running for 21.693)
+2020-07-23 17:09:14.117  INFO 9989 --- [http-nio-10001-exec-1] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-23 17:09:14.117  INFO 9989 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-23 17:09:14.121  INFO 9989 --- [http-nio-10001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-07-23 17:09:14.125  INFO 9989 --- [http-nio-10001-exec-1] c.leo.flowrestrict.filter.CounterFilter  : [request info...] path info:/counter
+2020-07-23 17:09:14.126  INFO 9989 --- [http-nio-10001-exec-1] com.leo.flowrestrict.algorithms.Counter  : Time Gap :31371
+2020-07-23 17:12:14.914  INFO 9989 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:12:33.024  WARN 10022 --- [main] o.s.boot.StartupInfoLogger               : InetAddress.getLocalHost().getHostName() took 5004 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-07-23 17:12:38.034  INFO 10022 --- [main] c.l.f.FlowRestrictApplication            : Starting FlowRestrictApplication on leodeMacBook-Pro.local with PID 10022 (/Users/leo/IdeaProjects/flow-restrict/target/classes started by leo in /Users/leo/IdeaProjects/flow-restrict)
+2020-07-23 17:12:38.035  INFO 10022 --- [main] c.l.f.FlowRestrictApplication            : The following profiles are active: dev
+2020-07-23 17:12:38.586  INFO 10022 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10001 (http)
+2020-07-23 17:12:38.591  INFO 10022 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-23 17:12:38.591  INFO 10022 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-23 17:12:38.644  INFO 10022 --- [main] o.a.c.c.C.[.[.[/flow-restrict]           : Initializing Spring embedded WebApplicationContext
+2020-07-23 17:12:38.644  INFO 10022 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 574 ms
+2020-07-23 17:12:38.759  INFO 10022 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-23 17:12:38.857  INFO 10022 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10001 (http) with context path '/flow-restrict'
+2020-07-23 17:12:38.864  INFO 10022 --- [main] c.l.f.FlowRestrictApplication            : Started FlowRestrictApplication in 16.163 seconds (JVM running for 21.609)

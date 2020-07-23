@@ -1,4 +1,8 @@
 algorithms:
   counter:
     limitation: 20
+logging:
+  file:
+    path: ./logs
+    name: flow-restrict.log
 

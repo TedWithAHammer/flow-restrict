@@ -2,7 +2,9 @@ package com.leo.flowrestrict.algorithms;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
+import org.apache.tomcat.util.threads.ScheduledThreadPoolExecutor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +35,7 @@ public class CounterTester {
 
     @Test
     public void testCount() {
-        ExecutorService service = Executors.newFixedThreadPool(100);
+        ExecutorService service = Executors.newScheduledThreadPool(100);
         log.info("junit test running");
 //        while (true) {
 //            service.submit(() -> System.out.print(String.format("[TimeMills:%d Thread:%s] passed:%s\n", System
