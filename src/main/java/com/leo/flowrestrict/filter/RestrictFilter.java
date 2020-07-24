@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.leo.flowrestrict.Response.RestBaseResp;
 import com.leo.flowrestrict.algorithms.Bucket;
 import com.leo.flowrestrict.algorithms.Counter;
+import com.leo.flowrestrict.algorithms.TokenBucket;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,6 +33,9 @@ public class RestrictFilter implements Filter {
     private Counter counter;
     @Autowired
     private Bucket bucket;
+
+    @Autowired
+    private TokenBucket tokenBucket;
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -48,6 +52,8 @@ public class RestrictFilter implements Filter {
         if ("/counter".equals(request.getServletPath()) && !counter.filter()) {
             servletResponse.getWriter().write(objectMapper.writeValueAsString(RestBaseResp.FLOW_RESTRICT));
         } else if ("/bucket".equals(request.getServletPath()) && !bucket.filter()) {
+            servletResponse.getWriter().write(objectMapper.writeValueAsString(RestBaseResp.FLOW_RESTRICT));
+        } else if ("/token-bucket".equals(request.getServletPath()) && !tokenBucket.filter()) {
             servletResponse.getWriter().write(objectMapper.writeValueAsString(RestBaseResp.FLOW_RESTRICT));
         } else {
             filterChain.doFilter(request, servletResponse);
